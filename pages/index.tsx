@@ -1,7 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
+import {TodoContainer} from "../components/TodoContainer";
+import {withTodoItems} from "../hoc/withTodoItems";
+import {getTodoItems} from "../gateways/Todo/getTodoItems";
 
-export default function Home() {
+export default function Home({todoItems}) {
   return (
     <div>
       <Head>
@@ -13,6 +16,7 @@ export default function Home() {
           Welcome to Todo SSR
         </h1>
 
+          <TodoContainer items={todoItems}/>
       </main>
 
       <footer>
@@ -23,3 +27,7 @@ export default function Home() {
     </div>
   )
 }
+
+export const getServerSideProps = withTodoItems(getTodoItems)((context) => {
+    return {props: {todoItems: context.todoItems}}
+})
