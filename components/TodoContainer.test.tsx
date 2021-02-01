@@ -9,7 +9,12 @@ describe("TodoContainer", () => {
 
         context.getByText("Sit back and relax, nothing to do.");
     })
-    it.skip('Renders each todo item', () => {
+    it('Renders each todo item', () => {
+        const items = ["Todo 1", "Todo 2"];
 
+        const context = render(<TodoContainer items={items} />);
+
+        context.getByText("Todo 1");
+        context.getByText("Todo 2");
     })
 })
