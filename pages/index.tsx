@@ -16,7 +16,7 @@ export default function Home() {
 
       <footer>
         <p>
-          A demonstration <strike>progressive enhancement</strike> SSR todo app.
+          A demonstration SSR todo app.
         </p>
       </footer>
     </div>
