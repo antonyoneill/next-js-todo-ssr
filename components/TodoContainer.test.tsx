@@ -7,7 +7,7 @@ describe("TodoContainer", () => {
         const items = [];
         const context = render(<TodoContainer items={items} />);
 
-        context.getByText("Sit back and relax, nothing to do.");
+        context.getByTestId('no-todo-items');
     })
     it('Renders each todo item', () => {
         const items = ["Todo 1", "Todo 2"];
