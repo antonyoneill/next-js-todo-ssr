@@ -1,15 +1,16 @@
 import {withTodoItems} from "./withTodoItems";
-import {returnStatement} from "@babel/types";
+
+jest.mock('../gateways/Todo/getTodoItems', () => ({
+    getTodoItems: () => (['Todo 1', 'Todo 2'])
+}))
 
 describe('withTodoItems', () => {
     it('adds Todo Items to the context object', () => {
-        const mockTodoUsecase = jest.fn().mockReturnValue(['Todo 1', 'Todo 2']);
-
         const stubReturn = Symbol()
 
         const stub = jest.fn().mockReturnValue(stubReturn);
 
-        const callback = withTodoItems(mockTodoUsecase)(stub)
+        const callback = withTodoItems(stub)
 
         const result = callback({foo: 'bar'})
 

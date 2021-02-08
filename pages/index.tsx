@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import {TodoContainer} from "../components/TodoContainer";
 import {withTodoItems} from "../hoc/withTodoItems";
-import {getTodoItems} from "../gateways/Todo/getTodoItems";
 
 export default function Home({todoItems}) {
   return (
@@ -28,6 +27,6 @@ export default function Home({todoItems}) {
   )
 }
 
-export const getServerSideProps = withTodoItems(getTodoItems)((context) => {
+export const getServerSideProps = withTodoItems((context) => {
     return {props: {todoItems: context.todoItems}}
 })
