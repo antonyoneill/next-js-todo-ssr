@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { TodoContainer } from '../components/TodoContainer';
-import { withTodoItems } from '../hoc/withTodoItems';
+import withTodoItems from '../hoc/withTodoItems';
 
 export default function Home({ todoItems }) {
     return (

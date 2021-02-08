@@ -1,6 +1,6 @@
-export type addTodoItem = (item: string) => { success: boolean; error?: boolean };
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-export const addTodoItem: addTodoItem = (item) => {
+export default (item) => {
     // Do something with it
 
     return { success: true };

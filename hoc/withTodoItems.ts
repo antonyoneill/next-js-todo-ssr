@@ -1,16 +1,14 @@
-import { getTodoItems } from '../gateways/Todo/getTodoItems';
+import getTodoItems from '../gateways/Todo/getTodoItems';
 
 type withTodoItemsReceiver = ({ todoItems }) => any;
 
 interface Dependencies {
-    getTodoItems: getTodoItems;
+    getTodoItems: typeof getTodoItems;
 }
 
-type withTodoItems = (receiver: withTodoItemsReceiver) => (context: any) => any;
-
-export const _withTodoItems = (deps: Dependencies): withTodoItems => (receiver) => {
+export const _withTodoItems = (deps: Dependencies) => (receiver: withTodoItemsReceiver) => {
     const todoItems = deps.getTodoItems();
     return (context) => receiver({ todoItems, ...context });
 };
 
-export const withTodoItems: withTodoItems = _withTodoItems({ getTodoItems });
+export default _withTodoItems({ getTodoItems });

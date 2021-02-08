@@ -1,5 +1,3 @@
-export type getTodoItems = () => string[];
-
-export const getTodoItems: getTodoItems = () => {
+export default () => {
     return ['Todo 1', 'Todo 2', 'Todo 3'];
 };
