@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "eslint '*/**/*.{js,ts,tsx}'"
+    "check:lint": "eslint '*/**/*.{js,ts,tsx}'",
+    "check:types": "tsc --noEmit"
   },
   "dependencies": {
     "next": "10.0.6",
